@@ -1,10 +1,12 @@
 import "./styles.css";
+import startingBooks from "../data/books.json";
+import BookList from "./BookList.jsx";
 
 export default function App() {
   return (
-    <main>
-      <h1>Your application starts here</h1>
-      {/* Build your own components, state, routes where required, and interactions. */}
+    <main className="app">
+      <h1>Alex's Reading List</h1>
+      <BookList books={startingBooks} />
     </main>
   );
 }

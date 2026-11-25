@@ -36,7 +36,7 @@ export default function App() {
       <BookForm onAdd={handleAdd} />
       <FilterBar status={statusFilter} changeStatus={setStatusFilter} />
       <BookList 
-        books={books} 
+        books={visibleBooks} 
         isFiltered={statusFilter !== "all"}
         onToggle={handleToggle}
         onRemove={handleRemove}/>

@@ -1,14 +1,9 @@
 import BookCard from "./BookCard.jsx";
+import EmptyState from "./EmptyState.jsx";
 
 export default function BookList({ books, isFiltered, onToggle, onRemove }) {
   if (books.length === 0) {
-    return (
-      <p className="empty-state">
-        {isFiltered
-          ? "None of the available books match this filter"
-          : "Your list is empty"}
-      </p>
-    );
+    return <EmptyState isFiltered={isFiltered} />;
   }
 
   return (

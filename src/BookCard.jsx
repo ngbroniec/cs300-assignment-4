@@ -1,24 +1,33 @@
-function cleanText(value, fallback) {
-  return typeof value === "string" && value.trim() !== ""
-    ? value.trim()
-    : fallback;
-}
-
-export default function BookCard({ book }) {
-  const title = cleanText(book.title, "Untitled Book");
-  const creator = cleanText(book.creator, "Unknown Author");
-  const category = cleanText(book.category, "");
-  const hasMinutes = Number.isFinite(book.minutes);
+export default function BookCard({ book, onToggle, onRemove }) {
+  const toggleText = book.read ? "Mark as unread" : "Mark as read";
 
   return (
     <li className="book-card">
-      <h3>{title}</h3>
+      <h3>{book.title}</h3>
       <p className="book-meta">
-        {creator}
-        {category ? ` · ${category}` : ""}
-        {hasMinutes ? ` · ${book.minutes} min` : ""}
+        {book.creator} · {book.category}
+        {book.minutes ? ` · ${book.minutes} min` : ""}
       </p>
-      {book.description ? <p>{book.description}</p> : null}
+      <p className={book.read ? "status status-read" : "status"}>
+        {book.read ? "Read" : "Want to read"}
+      </p>
+      <div className="card-actions">
+        <button
+          type="button"
+          aria-label={`${toggleText} ${book.title}`}
+          onClick={() => onToggle(book.id)}
+        >
+          {toggleText}
+        </button>
+        <button
+          type="button"
+          className="danger"
+          aria-label={`Remove ${book.title}`}
+          onClick={() => onRemove(book.id)}
+        >
+          Remove
+        </button>
+      </div>
     </li>
   );
 }

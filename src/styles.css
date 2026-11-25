@@ -1,1 +1,93 @@
-/* Write your own responsive styles and focus treatment here. */
+body {
+  font-family: system-ui, sans-serif;
+  margin: 0;
+  padding: 1rem;
+}
+
+.app {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.book-form,
+.filter-bar,
+.book-card,
+.empty-state {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.book-form,
+.filter-bar,
+.empty-state {
+  margin-bottom: 1rem;
+}
+
+.form-field {
+  margin-bottom: 0.75rem;
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+input[aria-invalid="true"] {
+  border: 2px solid #b00020;
+}
+
+.field-error {
+  color: #b00020;
+  margin: 0.25rem 0 0;
+}
+
+button {
+  padding: 0.5rem 0.9rem;
+  min-height: 2.5rem;
+  cursor: pointer;
+}
+
+.danger {
+  color: #b00020;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid #b45309;
+  outline-offset: 2px;
+}
+
+.filter-option {
+  margin-right: 1rem;
+}
+
+.book-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.status-read {
+  color: #00981c;
+  font-weight: bold;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.empty-state {
+  text-align: center;
+}
